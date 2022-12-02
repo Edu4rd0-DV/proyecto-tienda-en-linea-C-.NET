@@ -1,0 +1,76 @@
+﻿@model WebApplication.Models.inventario_p
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/MasterPage.cshtml";
+}
+
+
+<link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css">
+<link href="~/Content/style2.css" rel="stylesheet" />
+
+
+
+
+
+
+    <form class="login-form x">
+        <img src="@ViewBag.ImageData2" />  
+    </form>
+    <br>
+
+    <form class="form-a" style="height:490px; width:400px; ">
+
+        <span>Sportswear</span>
+        <!-- ##### Single Product Details Area Start ##### -->
+        <section class="single_product_details_area d-flex align-items-center">
+
+
+            <!-- Single Product Description -->
+            <div class="single_product_desc clearfix">
+   
+                <br>
+
+                <h2 style="color: blue"> @Html.DisplayFor(model => model.DataProducto)</h2>  <br>
+
+                <p class="product-price"><span class="old-price"></span>$ @Html.DisplayFor(model => model.Precio)</p>
+                <strong>tipo:</strong>
+                @Html.DisplayFor(model => model.Datasexo)
+                <br />
+                <strong>proveedor:</strong>
+                @Html.DisplayFor(model => model.DataProveedor)
+                <br/>
+                <p>descripcion:</p>
+                 <p style="height:100px; width:200px;  ">
+
+                     @Html.DisplayFor(model => model.descripcion)
+                 </p>
+                     <!-- Form -->
+                    <form class="cart-form clearfix">
+                        <!-- Cart & Favourite Box -->
+                        <div>
+                            <!-- Cart -->
+                            <br><br><br><br><br><br><br>
+                    
+                                <a href="@Url.Action("Buy", "cart" , new { id=Model.id ,id2 = @Session["Id"].ToString()})" class="btn btn-sm btn-outline-success">Añadir Al Carrito</a>
+                                <a href="@Url.Action("Index", "Inventario" ,new { id= @Session["Id"].ToString()})" class="btn btn-sm btn-outline-danger">Volver</a>
+
+</div>
+                    </form>
+                </div>
+        </section>
+    </form>
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br />
+   
+   <script src="~/Script/jquery.min.js"></script>
+   <script src="~/Scripts/bootstrap.js"></script>
+   <script src="~/Script/Modales-code.js"></script>
+   
+  <!----------------------------------------------------------->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

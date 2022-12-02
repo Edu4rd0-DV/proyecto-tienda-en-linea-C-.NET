@@ -1,0 +1,64 @@
+﻿@model WebApplication.ServiceReference.Usuario
+
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+ <link href="~/Content/bootstrap.css" rel="stylesheet" />
+ <link href="~/Content/styleLG.css" rel="stylesheet" />
+<body>
+    <div class="login-box">
+
+    
+        <from action="/action_page.php" class="was-validated" >
+            <img class="card-img" src="~/img2/LOGO1.png" style="border-radius:50%; margin-top:-80px;">
+            <label style="margin-left:15%;">Iniciar sesion</label>
+            <br />
+            <div class="form-group" >
+               
+                <div class="col-md-10">
+                    
+                    @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @class = "form-control", placeholder = "Correo electronico", id = "uname ", name = "uname", type = "text", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
+
+                </div>
+                </div>
+         
+            <br />
+            <div class="form-group" >
+               
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.contraseña, new { htmlAttributes = new { @class = "form-control" , placeholder = "contraseña" ,type ="password" , id = "pwd" , name = "pswd" , @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.contraseña, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Ingresar" class="btn btn-default" />
+                        <p>
+                            <a href="@Url.Action("Create","usuario")" style="color:black" onclick="myfuncion()">Crear cuenta </a>
+                        </p>
+                    
+                    </div>    
+                
+            </div>
+        
+       
+        </from>
+    </div>
+    <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/popover.js"></script>
+    </body>
+}
+
+

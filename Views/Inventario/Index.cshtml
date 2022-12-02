@@ -1,0 +1,144 @@
+﻿@model IPagedList<WebApplication.Models.inventario_p>
+@using PagedList.Mvc;
+@using PagedList;
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/style_card.css" rel="stylesheet" />
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/MasterPage.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Inventario", FormMethod.Get, new { id = "form1" }))
+
+{
+    @* En este Dorpdownlist, se cargarán los resultados enviados a esta vista a través del ViewBag *@
+   
+} 
+
+<div class="row" style="margin-bottom:10px; margin-top:20px;">
+    <h2 class="col-sm-10"> &nbsp; &nbsp; Catalogo</h2>
+    <a style="padding-left:100px;"  class="btn btn-sm btn-link col-sm-2" href="@Url.Action("Index", "cart")"><i class="fa fa-shopping-cart"></i> Ir al carrito</a>
+</div>
+    <form class="fomr-group" style="margin-left:20px; ">
+        
+        <div class="input-group" style="padding-left:14%;">
+            <div class="input-group-prepend" style="width:920px;">
+                <div class="input-group-text" style="background: white; " >
+                    <i class="fa fa-search"></i>
+
+                </div>
+                <input type="text" class="form-controls"  id="txtbuscar" name="txtbuscar" aria-descridbey="Ayuda-text" placeholder="Buscar producto...">
+                <div class="row" style="width: 1200px; margin-left: -160px;">
+                    <div class="col-sm-6 offset-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Nº </span>
+                            </div>
+                            @Html.DropDownList("pageSize", (IEnumerable<SelectListItem>)ViewBag.pageSize, new { @class = "form-control" })
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                                    de @Model.PageCount
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+        </div>
+        
+        <br /><br />
+
+        <!--Targeta-->
+    </form>
+
+    <div class="row ">
+
+        <div id="content-card" class="card-columns col-lg-9 " style="width:960px; margin-left:60px; ">
+
+            @foreach (var item in Model)
+            {
+
+                
+                <div class="card  , zoom"  id="item-find">
+                    
+                    <div class="card-header text-white bg-secondary ">
+                        <p class="card-title" style="text-align:center;">
+                            @Html.DisplayFor(modelItem => item.DataProducto)<br>
+                        </p>
+                    </div>
+
+                    <div class="card-body" style="display:block;margin:auto;"> 
+                        <img class="img" src="@item.imagen">
+                    </div>
+
+                    <div class="" style="text-align:center;">
+                        <a href="@Url.Action("Buy", "cart" , new { id=item.id , id2 = @Session["Id"].ToString() })" class="btn btn-primary">
+                            <i class="material-icons , right">favorite</i>
+                            Añadir Al Carrito
+                        </a>
+                        <a href="@Url.Action("Details", "Inventario",new { id=item.id , id2 = @Session["Id"].ToString()  })" class="btn btn-outline-danger">Detalles</a>
+
+                        <br /><br />
+                        <span class="badge badge-success" style="font-size: 18px;text-align:center;">
+                            <strong>$</strong>&nbsp;@Html.DisplayFor(modelItem => item.Precio)
+                        </span>
+                        <p class="card-text" style="text-align:center;">
+                            <strong>Genero:</strong>&nbsp; @Html.DisplayFor(modelItem => item.Datasexo)<br />
+                            <strong>Proveedor:</strong>&nbsp; @Html.DisplayFor(modelItem => item.DataProveedor)<br /><br />
+
+                        </p>
+                    </div>
+                </div>
+
+            }
+            <br /><br /><br />
+            </div>
+        </div>
+<br />
+
+<br /><br />
+<div class="justify-content-center" style="margin-left:30px;">
+    @* En el HtmlPagedListPager, Se mostrará la paginación de los resultados *@
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize = ViewBag.psize }))
+</div>
+
+
+
+
+<style>
+
+* {
+  
+}
+
+.zoom {
+  padding-left: 1px;
+  transition: transform .2s;
+  margin: 40px;
+  
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.2); /* IE 9 */
+  -webkit-transform: scale(1.2); /* Safari 3-8 */
+  transform: scale(1.2);
+}
+
+</style>
+    
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ 

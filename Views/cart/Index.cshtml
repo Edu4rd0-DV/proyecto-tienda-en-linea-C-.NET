@@ -1,0 +1,81 @@
+﻿@model WebApplication.ServiceReference.Inventariob
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/MasterPage.cshtml";
+}
+
+@using WebApplication.Models
+<link href="~/Content/all.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Content/bootstrap.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cart</title>
+</head>
+<body>
+
+    <br />
+    <h3 style="margin-left:10px;">Productos en carrito</h3>  
+      <img class="card-img" src="~/img2/LOGO.png" style="width:340px;  height:200px; margin-left:550px;">
+
+    
+    <table class="table table-bordered table-hover">
+        <tr class="thead-dark">
+            <th>Opción</th>
+            
+            <th>Photo</th>
+            <th>Nombre</th>
+            <th>Proveedor</th>
+      
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Sub Total</th>
+        </tr>
+        @foreach (Item item in (List<Item>)Session["cart"])
+        {
+            <tr>
+                <td align="center"><a class="btn btn-sm btn-outline-success" href="@Url.Action("Remove", "Cart", new { id = item.Product.id })">
+                    <i class="fa fa-close"></i> Quitar</a></td>
+                
+                <td><img src="@item.img" width="60" /> </td>
+                <td>@item.Product.DataProducto</td>
+                <td>@item.Product.DataProveedor</td>
+
+                <td>$ @item.Product.Precio</td>
+                <td><input type="number" value="@item.Quantity" class="form-control" style="width:100px;" /></td>
+                <td>$ @(item.Product.Precio * item.Quantity)</td>
+            </tr>
+        }
+        <tr>
+            <td align="right" colspan="6">Total a pagar</td>
+            <td>
+                @{
+                    List<Item> cart = (List<Item>)Session["cart"];
+                    var total = cart.Sum(item => item.Product.Precio * item.Quantity);
+                }
+                $ @total
+            </td>
+        </tr>
+    </table>
+
+            <a  style="margin-left:10px;" href="@Url.Action("Index", "Inventario",new { id= @Session["Id"].ToString()})" class="btn  btn-info"  > Seguir comprando </a>
+
+    <br /><br />
+    <script src="~/Scripts/jquery-2.2.4.min.js"></script>
+
+    <script src="~/Scripts/active.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/plugins.js"></script>
+    <!------------------------------------------------------>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    
+</body>
+</html>
+

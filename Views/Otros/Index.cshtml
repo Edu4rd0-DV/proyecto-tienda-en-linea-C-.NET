@@ -1,0 +1,254 @@
+﻿@model WebApplication.ServiceReference.Usuario 
+
+
+
+<link rel="stylesheet" href="~/Content/style.css">
+
+<link rel="stylesheet" href="~/Content/bootstrap.css">
+<link rel="stylesheet" href="~/Content/core-style.css" />
+<link rel="stylesheet" href="~/Content/nivo-slider.css" />
+<link rel="stylesheet" href="~/Content/mi-slider.css" />
+<link rel="stylesheet" href="~/Content/estilos.css" />
+
+<!--footer-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="~/Scripts/jquery-slider-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+        $(window).on('load', function() {
+            $('#slider').nivoSlider();
+        });
+</script>
+
+<!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+<link rel="stylesheet" type="text/css" href="~/Content/stylec.css" />
+
+<br />
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/MasterPage.cshtml";
+}
+
+<body>
+    <section>
+        <div id="wowslider-container0">
+            <div class="ws_images">
+                <ul>
+                    <li><img src="~/img2/data0/slider1.png" alt="" title="" id="wows0_0" /></li>
+                    <li><img src="~/img2/data0/slider2.png" alt="" title="" id="wows0_1" /></li>
+                    <li><a href="http://wowslider.net"><img src="~/img2/data0/slider3.jpg" alt="bootstrap carousel example" title="" id="wows0_2" /></a></li>
+                    <li><img src="~/img2/data0/slider5.jpg" alt="" title="" id="wows0_3" /></li>
+                </ul>
+            </div>
+            <div class="ws_bullets">
+                <div>
+                    <a href="#" title=""><span><img src="~/img2/data0/slider1.png" alt="" />1</span></a>
+                    <a href="#" title=""><span><img src="~/img2/data0/slider2.jpg" alt="" />2</span></a>
+                    <a href="#" title=""><span><img src="~/img2/slider3.jpg" alt="" />3</span></a>
+                    <a href="#" title=""><span><img src="~/img2/data0/slider5.jpg" alt="" />4</span></a>
+                </div>
+            </div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.net">slideshow html code</a> by WOWSlider.com v8.8</div>
+            <div class="ws_shadow"></div>
+        </div>
+        <script type="text/javascript" src="~/Scripts/wowslider.js"></script>
+        <script type="text/javascript" src="~/Scripts/script.js"></script>
+        <!-- End WOWSlider.com BODY section -->
+        <div class="container1">
+
+            <div class="card">
+
+                <br>
+                <a href="#">
+                    <img src="~/img2/6.jpg">
+                </a>
+                <br>
+                <h4>Hombre</h4>
+
+
+            </div>
+
+            <div class="card">
+                <a href="#">
+                    <img src="~/img2/rp1.png">
+                </a>
+             
+
+                <br>
+                <h4>Mujer</h4>
+
+            </div>
+        </div>  
+
+        <!-- Carousel -->
+        <div class="container">
+            <div class="row blog">
+                <div class="col-md-12">
+                    <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel">
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="card border-dark" style="margin-top: 20px; margin-bottom: 20px;">
+                                            <div class="card-header text-center">
+                                                <span class="card-title">Producto</span>
+                                            </div>
+                                            <div class="card-body">
+                                                <img class="card-img" src="~/img2/3.jpg" style="display:flex; margin:auto; width: 180px; height: 180px;" alt="">
+                                                <p class="card-text text-sm-center">Precio: <span class="text-success">$0.0</span></p>
+                                            </div>
+                                            <div class="card-footer" style="text-align:center;">
+                                                <input type="button" value="Comprar" class="btn  btn-sm btn-primary "> |
+                                                <input type="button" value="Detalle" class="btn  btn-sm btn-outline-danger ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-dark" style="margin-top: 20px; margin-bottom: 20px;">
+                                            <div class="card-header text-center">
+                                                <span class="card-title">Producto</span>
+                                            </div>
+                                            <div class="card-body">
+                                                <img class="card-img" src="~/img2/6.jpg" style="display:flex; margin:auto; width: 180px; height: 180px;" alt="">
+                                                <p class="card-text text-sm-center">Precio: <span class="text-success">$0.0</span></p>
+                                            </div>
+                                            <div class="card-footer" style="text-align:center;">
+                                                <input type="button" value="Comprar" class="btn  btn-sm btn-primary "> |
+                                                <input type="button" value="Detalle" class="btn  btn-sm btn-outline-danger ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-dark" style="margin-top: 20px; margin-bottom: 20px;">
+                                            <div class="card-header text-center">
+                                                <span class="card-title">Producto</span>
+                                            </div>
+                                            <div class="card-body">
+                                                <img class="card-img" src="~/img2/11.jpg" style="display:flex; margin:auto; width: 180px; height: 180px;" alt="">
+                                                <p class="card-text text-sm-center">Precio: <span class="text-success">$0.0</span></p>
+                                            </div>
+                                            <div class="card-footer" style="text-align:center;">
+                                                <input type="button" value="Comprar" class="btn  btn-sm btn-primary "> |
+                                                <input type="button" value="Detalle" class="btn  btn-sm btn-outline-danger ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-dark" style="margin-top: 20px; margin-bottom: 20px;">
+                                            <div class="card-header text-center">
+                                                <span class="card-title">Producto</span>
+                                            </div>
+                                            <div class="card-body">
+                                                <img class="card-img" src="~/img2/12.jpg" style="display:flex; margin:auto; width: 180px; height: 180px;" alt="">
+                                                <p class="card-text text-sm-center">Precio: <span class="text-success">$0.0</span></p>
+                                            </div>
+                                            <div class="card-footer" style="text-align:center;">
+                                                <input type="button" value="Comprar" class="btn  btn-sm btn-primary "> |
+                                                <input type="button" value="Detalle" class="btn  btn-sm btn-outline-danger ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--.row-->
+                            </div>
+                            <!--.item-->
+                            <div class="carousel-item ">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="card border-dark" style="margin-top: 20px; margin-bottom: 20px;">
+                                            <div class="card-header text-center">
+                                                <span class="card-title">Producto</span>
+                                            </div>
+                                            <div class="card-body">
+                                                <img class="card-img" src="~/img2/13.jpg" style="display:flex; margin:auto; width: 180px; height: 180px;" alt="">
+                                                <p class="card-text text-sm-center">Precio: <span class="text-success">$0.0</span></p>
+                                            </div>
+                                            <div class="card-footer" style="text-align:center;">
+                                                <input type="button" value="Comprar" class="btn  btn-sm btn-primary "> |
+                                                <input type="button" value="Detalle" class="btn  btn-sm btn-outline-danger ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-dark" style="margin-top: 20px; margin-bottom: 20px;">
+                                            <div class="card-header text-center">
+                                                <span class="card-title">Producto</span>
+                                            </div>
+                                            <div class="card-body">
+                                                <img class="card-img" src="~/img2/2.jpg" style="display:flex; margin:auto; width: 180px; height: 180px;" alt="">
+                                                <p class="card-text text-sm-center">Precio: <span class="text-success">$0.0</span></p>
+                                            </div>
+                                            <div class="card-footer" style="text-align:center;">
+                                                <input type="button" value="Comprar" class="btn  btn-sm btn-primary "> |
+                                                <input type="button" value="Detalle" class="btn  btn-sm btn-outline-danger ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-dark" style="margin-top: 20px; margin-bottom: 20px;">
+                                            <div class="card-header text-center">
+                                                <span class="card-title">Producto</span>
+                                            </div>
+                                            <div class="card-body">
+                                                <img class="card-img" src="~/img2/20.jpg" style="display:flex; margin:auto; width: 180px; height: 180px;" alt="">
+                                                <p class="card-text text-sm-center">Precio: <span class="text-success">$0.0</span></p>
+                                            </div>
+                                            <div class="card-footer" style="text-align:center;">
+                                                <input type="button" value="Comprar" class="btn  btn-sm btn-primary "> |
+                                                <input type="button" value="Detalle" class="btn  btn-sm btn-outline-danger ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-dark" style="margin-top: 20px; margin-bottom: 20px;">
+                                            <div class="card-header text-center">
+                                                <span class="card-title">Producto</span>
+                                            </div>
+                                            <div class="card-body">
+                                                <img class="card-img" src="~/img2/14.jpg" style="display:flex; margin:auto; width: 180px; height: 180px;" alt="">
+                                                <p class="card-text text-sm-center">Precio: <span class="text-success">$20.0</span></p>
+                                            </div>
+                                            <div class="card-footer" style="text-align:center;">
+                                                <a href="#">
+                                                    <input type="button" value="Comprar" class="btn  btn-sm btn-primary ">
+                                                </a> |
+                                                <a href="#"><input type="button" value="Detalle" class="btn  btn-sm btn-outline-danger "></a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--.row-->
+                        </div>
+                        <!--.item-->
+                    </div>
+                    <!--.carousel-inner-->
+                </div>
+                <!--.Carousel-->
+            </div>
+        </div>
+    </section>
+    <br />
+    <br />
+
+
+
+    <script src="~/Scripts/jquery-2.2.4.min.js"></script>
+
+    <script src="~/Scripts/active.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/plugins.js"></script>
+    <!------------------------------------------------------>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+
+
+

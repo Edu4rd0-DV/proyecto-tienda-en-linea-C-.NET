@@ -1,0 +1,118 @@
+﻿@model WebApplication.ServiceReference.Usuario
+
+@{
+   
+    Layout = null;
+}
+<link rel="stylesheet" href="~/Content/bootstrap.css">
+<link rel="stylesheet" href="~/Content/fondo.css">
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<body style="margin-left:8%;">
+ 
+        <h2>Editar Usuario</h2>
+
+
+        @using (Html.BeginForm("Edit", "usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group" style="width:500px; border:0;">
+                    @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="width:500px; border:0;">
+                    @Html.LabelFor(model => model.apellido, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.apellido, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.apellido, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="width:500px; border:0;">
+                    @Html.LabelFor(model => model.sexo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.sexo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.sexo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="width:500px; border:0;">
+                    @Html.LabelFor(model => model.correo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group" style="width:500px; border:0;">
+                    @Html.LabelFor(model => model.imagen, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <output id="list"><img src="@ViewBag.ImageData" alt="Alternate Text" id="list" /></output>
+                        <br />
+                        <br />
+                        <input type="file" id="files" name="FileBase" />
+                        @Html.ValidationMessageFor(model => model.imagen, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-group" style="width:500px; border:0;">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Guardar" class="btn btn-primary" />
+                        <a href="@Url.Action("Index", "Otros")" class="btn btn-dark">Volver</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+        <style>
+            .thumb {
+                height: 170px;
+                border: 1px solid #000;
+                margin: 10px 5px 0 0;
+                margin-left: 10px;
+            }
+        </style>
+        <script>
+            function archivo(evt) {
+                var files = evt.target.files; // FileList object
+
+                // Obtenemos la imagen del campo "file".
+                for (var i = 0, f; f = files[i]; i++) {
+                    //Solo admitimos imágenes.
+                    if (!f.type.match('image.*')) {
+                        continue;
+                    }
+
+                    var reader = new FileReader();
+
+                    reader.onload = (function (theFile) {
+                        return function (e) {
+                            // Insertamos la imagen
+                            document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '" />'].join('');
+                        };
+                    })(f);
+
+                    reader.readAsDataURL(f);
+                }
+            }
+
+            document.getElementById('files').addEventListener('change', archivo, false);
+        </script>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+    </body>
